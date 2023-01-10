@@ -3,6 +3,8 @@ package day20Practiceproblem;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static org.junit.Assert.assertTrue;
+
 public class UserRegistrationTest {
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
@@ -16,5 +18,11 @@ public class UserRegistrationTest {
         UserRegistration userRegistration = new UserRegistration();
         boolean lName = userRegistration.validateLastName("sarode");
         Assert.assertTrue(lName);
+    }
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean email = userRegistration.validateEmail("abc.xyz@bl.co.in");
+        Assert.assertTrue(email);
     }
 }
