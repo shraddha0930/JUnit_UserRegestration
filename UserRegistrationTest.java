@@ -25,4 +25,10 @@ public class UserRegistrationTest {
         boolean email = userRegistration.validateEmail("abc.xyz@bl.co.in");
         Assert.assertTrue(email);
     }
+    @Test
+    public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean phoneNumber = userRegistration.validatePhoneNumber("91 7822503725");
+        Assert.assertTrue(phoneNumber);
+    }
 }
