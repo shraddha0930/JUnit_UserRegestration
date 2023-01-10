@@ -34,7 +34,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue(){
         UserRegistration userRegistration = new UserRegistration();
-        boolean password = userRegistration.validatePassword("qwertyui");
+        boolean password = userRegistration.validatePassword("Shr346$174sh");
         Assert.assertTrue(password);
     }
 }
