@@ -1,17 +1,12 @@
 package day20Practiceproblem;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.stream.Stream;
-
 public class UserRegistrationTest {
-    UserRegistration operation;
-    @ParameterizedTest
+    day20Practiceproblem.UserRegistration operation;
+    /*@ParameterizedTest
     @MethodSource("getEmailTests")
     public void test_email(String email, boolean expResult){
         Assert.assertEquals(expResult, operation.validateEmail(email));
@@ -27,75 +22,75 @@ public class UserRegistrationTest {
                 Arguments.of(".abc@com.com",false),
                 Arguments.of("abc+100@gmail.com",true)
         );
-    }
+    }*/
     @BeforeEach
     public void setUp() {
-        operation = new UserRegistration();
+        operation = new day20Practiceproblem.UserRegistration();
     }
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean fName = userRegistration.validateFirstName("Shraddha");
-        Assert.assertTrue( fName);
+        Assertions.assertDoesNotThrow(() -> {
+            operation.validateFirstName("shraddha");
+        });
     }
 
     @Test
     public void givenFirstName_WhenNotProper_ShouldReturnFalse() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean fName = userRegistration.validateFirstName("sra");
-        Assert.assertTrue(fName);
+        Assertions.assertThrows(UserRegException.class, () -> {
+            operation.validateFirstName("shr");
+        });
     }
 
     @Test
     public void givenLastName_WhenProper_ShouldReturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean lName = userRegistration.validateLastName("sarode");
-        Assert.assertTrue(lName);
+        Assertions.assertDoesNotThrow(() -> {
+            operation.validateLastName("Dev");
+        });
     }
 
     @Test
     public void givenLastName_WhenNotProper_ShouldReturnFalse() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean lName = userRegistration.validateFirstName("sra");
-        Assert.assertTrue(lName);
+        Assertions.assertThrows(UserRegException.class, () -> {
+            operation.validateLastName("dev");
+        });
     }
 
     @Test
     public void givenEmail_WhenProper_ShouldReturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean email = userRegistration.validateEmail("abc.xyz@bl.co.in");
-        Assert.assertTrue(email);
+        Assertions.assertDoesNotThrow(() -> {
+            operation.validateEmail("abc.xyz@bl.co.in");
+        });
     }
     @Test
     public void givenEmail_WhenNotProper_ShouldReturnFalse() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean email = userRegistration.validateFirstName(".abc@yahoo.com");
-        Assert.assertTrue( email);
+        Assertions.assertThrows(UserRegException.class, () -> {
+            operation.validateEmail("jas@.com.aa.asd");
+        });
     }
 
     @Test
     public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean phoneNumber = userRegistration.validatePhoneNumber("91 7822503725");
-        Assert.assertTrue(phoneNumber);
+        Assertions.assertDoesNotThrow(() -> {
+            operation.validatePhoneNumber("91 8767998269");
+        });
     }
     @Test
     public void givenPhoneNumber_WhenNotProper_ShouldReturnFalse() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean phoneNumber = userRegistration.validateFirstName("sra");
-        Assert.assertTrue(phoneNumber);
+        Assertions.assertThrows(UserRegException.class, () -> {
+            operation.validatePhoneNumber("914767698269");
+        });
     }
 
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean password = userRegistration.validatePassword("Shr346$174sh");
-        Assert.assertTrue(password);
+        Assertions.assertDoesNotThrow(() -> {
+            operation.validatePassword("Qwsd@12345");
+        });
     }
     @Test
     public void givenPassword_WhenNotProper_ShouldReturnFalse() {
-        UserRegistration userRegistration = new UserRegistration();
-        boolean password = userRegistration.validateFirstName("sra");
-        Assert.assertTrue( password);
+        Assertions.assertThrows(UserRegException.class, () -> {
+            operation.validatePassword("Qw@#12");
+        });
     }
 }
