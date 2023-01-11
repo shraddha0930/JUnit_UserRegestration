@@ -33,7 +33,7 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void givenEmail_WhenProper_ShouldReturnTrue() {
+    public void givenEmail_WhenProper_ShouldReturnHappy() {
         UserRegistration userRegistration = new UserRegistration();
         String email = userRegistration.validateEmail("abc.xyz@bl.co.in");
         Assert.assertEquals("Happy",email);
@@ -46,7 +46,7 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnTrue() {
+    public void givenPhoneNumber_WhenProperWithSpace_ShouldReturnHappy() {
         UserRegistration userRegistration = new UserRegistration();
         String phoneNumber = userRegistration.validatePhoneNumber("91 7822503725");
         Assert.assertEquals("Happy",phoneNumber);
@@ -59,7 +59,7 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void givenPassword_WhenProper_ShouldReturnTrue() {
+    public void givenPassword_WhenProper_ShouldReturnHappy() {
         UserRegistration userRegistration = new UserRegistration();
         String password = userRegistration.validatePassword("Shr346$174sh");
         Assert.assertEquals("Happy",password);
