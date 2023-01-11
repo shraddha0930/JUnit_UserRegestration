@@ -8,26 +8,41 @@ public class UserRegistration {
     private static final String PHONE_PATTERN = "^[1-9]{2}(\\s)[6-9]{1}[0-9]{9}$";
     private static final String PASSWORD_PATTERN ="^[A-Za-z0-9!@#$%^&*]{8,}$";
 
-    public boolean validateFirstName(String fname) {
+    public String validateFirstName(String fname) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
-        return pattern.matches(NAME_PATTERN,fname);
+        if (pattern.matches(NAME_PATTERN,fname)== true)
+            return "HAPPY";
+        else
+            return "SAD";
     }
 
-    public boolean validateLastName(String lName) {
+    public String validateLastName(String lName) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
-        return pattern.matches(NAME_PATTERN,lName);
+        if (pattern.matches(NAME_PATTERN,lName)== true)
+            return "HAPPY";
+        else
+            return "SAD";
     }
 
-    public boolean validateEmail(String email) {
+    public String validateEmail(String email) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        return pattern.matches(EMAIL_PATTERN,email);
+        if (pattern.matches(EMAIL_PATTERN,email)== true)
+            return "HAPPY";
+        else
+            return "SAD";
     }
-    public boolean validatePhoneNumber(String phNumber) {
+    public String validatePhoneNumber(String phNumber) {
         Pattern pattern = Pattern.compile(PHONE_PATTERN);
-        return pattern.matches(PHONE_PATTERN, phNumber);
+        if (pattern.matches(PHONE_PATTERN, phNumber)== true)
+            return "HAPPY";
+        else
+            return "SAD";
     }
-    public boolean validatePassword(String password){
+    public String validatePassword(String password){
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-        return pattern.matches(PASSWORD_PATTERN, password);
+        if (pattern.matches(PASSWORD_PATTERN, password)== true)
+            return "HAPPY";
+        else
+            return "SAD";
     }
 }
