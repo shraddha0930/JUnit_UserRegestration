@@ -56,7 +56,7 @@ public class UserRegistrationTest {
     @Test
     public void givenLastName_WhenNotProper_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean lName = userRegistration.validateFirstName("sra");
+        boolean lName = userRegistration.validateLastName("sra");
         Assert.assertTrue(lName);
     }
 
@@ -69,7 +69,7 @@ public class UserRegistrationTest {
     @Test
     public void givenEmail_WhenNotProper_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean email = userRegistration.validateFirstName(".abc@yahoo.com");
+        boolean email = userRegistration.validateEmail(".abc@yahoo.com");
         Assert.assertTrue( email);
     }
 
@@ -82,7 +82,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPhoneNumber_WhenNotProper_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean phoneNumber = userRegistration.validateFirstName("sra");
+        boolean phoneNumber = userRegistration.validatePhoneNumber("912734778293");
         Assert.assertTrue(phoneNumber);
     }
 
@@ -95,7 +95,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenNotProper_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean password = userRegistration.validateFirstName("sra");
+        boolean password = userRegistration.validatePassword("sra213458766");
         Assert.assertTrue( password);
     }
 }
