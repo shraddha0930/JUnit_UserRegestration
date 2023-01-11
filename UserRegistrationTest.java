@@ -28,7 +28,7 @@ public class UserRegistrationTest {
     @Test
     public void givenLastName_WhenNotProper_ShouldReturnSad() {
         UserRegistration userRegistration = new UserRegistration();
-        String lName = userRegistration.validateFirstName("sra");
+        String lName = userRegistration.validateLastName("sra");
         Assert.assertEquals("SAD", lName);
     }
 
@@ -41,7 +41,7 @@ public class UserRegistrationTest {
     @Test
     public void givenEmail_WhenNotProper_ShouldReturnSad() {
         UserRegistration userRegistration = new UserRegistration();
-        String email = userRegistration.validateFirstName(".abc@yahoo.com");
+        String email = userRegistration.validateEmail(".abc@yahoo.com");
         Assert.assertEquals("SAD", email);
     }
 
@@ -54,7 +54,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPhoneNumber_WhenNotProper_ShouldReturnSad() {
         UserRegistration userRegistration = new UserRegistration();
-        String phoneNumber = userRegistration.validateFirstName("sra");
+        String phoneNumber = userRegistration.validatePhoneNumber("sra");
         Assert.assertEquals("SAD", phoneNumber);
     }
 
@@ -67,7 +67,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenNotProper_ShouldReturnSad() {
         UserRegistration userRegistration = new UserRegistration();
-        String password = userRegistration.validateFirstName("sra");
+        String password = userRegistration.validatePassword("sra");
         Assert.assertEquals("SAD", password);
     }
 }
